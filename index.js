@@ -2,6 +2,7 @@ var tbody = document.querySelector("tbody");
 var thead = document.querySelector("thead");
 var tasksForm = document.getElementById("chors-form");
 var table = document.getElementById("task-table");
+var clearAll = document.getElementById("clear-all");
 // bring the array form the local storage.
 var listArray = JSON.parse(localStorage.getItem("list")) || [];
 
@@ -40,6 +41,7 @@ tasksForm.addEventListener("submit", function () {
 });
 
 function tableBodyGenerate() {
+  listArray = JSON.parse(localStorage.getItem("list")) || [];
   tbody.innerHTML = "";
   for (let index = 0; index < listArray.length; index++) {
     var newRow = `
@@ -47,7 +49,7 @@ function tableBodyGenerate() {
         <td>${listArray[index].task}</td>
         <td>${listArray[index].date}</td>
         <td>${listArray[index].urguncy}</td>
-        <td><button id="${index}">X</button></td>
+        <td><button class="deleBtn" id="${index}">X</button></td>
         </tr>
     `;
     tbody.innerHTML += newRow;
@@ -65,3 +67,11 @@ table.addEventListener("click", function () {
     tableBodyGenerate();
   }
 });
+
+clearAll.addEventListener("click", function () {
+  localStorage.clear();
+  tableBodyGenerate();
+  alert("You just Cleared all tha date");
+});
+
+function changeColor() {}
