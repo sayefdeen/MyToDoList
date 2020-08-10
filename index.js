@@ -3,6 +3,7 @@ var thead = document.querySelector("thead");
 var tasksForm = document.getElementById("chors-form");
 var table = document.getElementById("task-table");
 var clearAll = document.getElementById("clear-all");
+
 // bring the array form the local storage.
 var listArray = JSON.parse(localStorage.getItem("list")) || [];
 
@@ -12,6 +13,9 @@ function List(task, date, urguncy) {
   this.date = date;
   this.urguncy = urguncy;
 }
+
+// generate the header of the table.
+
 generateHeader();
 
 function generateHeader() {
@@ -40,6 +44,8 @@ tasksForm.addEventListener("submit", function () {
   tableBodyGenerate();
 });
 
+// generate the table body when the page is refreshed from the local storage
+
 function tableBodyGenerate() {
   listArray = JSON.parse(localStorage.getItem("list")) || [];
   tbody.innerHTML = "";
@@ -58,7 +64,7 @@ function tableBodyGenerate() {
 }
 tableBodyGenerate();
 
-// Delete form the array.
+// Delete a specific task form the array.
 
 table.addEventListener("click", function () {
   var eventTarget = event.target;
@@ -69,11 +75,15 @@ table.addEventListener("click", function () {
   }
 });
 
+// This function clear all data from local storage.
+
 clearAll.addEventListener("click", function () {
   localStorage.clear();
   tableBodyGenerate();
   alert("You just Cleared all tha date");
 });
+
+// This function contolles the color of the Urguncy.
 
 function changeColor() {
   var rows = table.rows;
