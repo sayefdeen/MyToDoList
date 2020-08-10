@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div class="row">
+        <div id="form-container">
+          <form id="chors-form">
+            <fieldset>
+              <label for="task">Task:</label>
+              <input type="text" name="task" id="task" required />
+              <label for="date">Date:</label>
+              <input type="date" name="date" id="date" required />
+              <label for="urgancy">Urgancy:</label>
+              <select name="urgancy" id="urgancy">
+                <option value="Low">Low</option>
+                <option value="Meduim">Meduim</option>
+                <option value="High">High</option>
+              </select>
+              <input type="submit" value="Submit" />
+            </fieldset>
+          </form>
+        </div>
+        <div id="table-container">
+          <table>
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+          <button>Clear All Data</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
