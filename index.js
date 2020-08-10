@@ -54,6 +54,7 @@ function tableBodyGenerate() {
     `;
     tbody.innerHTML += newRow;
   }
+  changeColor();
 }
 tableBodyGenerate();
 
@@ -74,4 +75,21 @@ clearAll.addEventListener("click", function () {
   alert("You just Cleared all tha date");
 });
 
-function changeColor() {}
+function changeColor() {
+  var rows = table.rows;
+  for (let index = 1; index < rows.length; index++) {
+    var cellContent = rows[index].cells[2];
+    switch (cellContent.innerHTML) {
+      case "Low":
+        cellContent.style.color = "green";
+        break;
+      case "Meduim":
+        cellContent.style.color = "yellow";
+        break;
+      case "High":
+        cellContent.style.color = "red";
+        break;
+    }
+    console.log(rows[index].cells[2].innerHTML);
+  }
+}
